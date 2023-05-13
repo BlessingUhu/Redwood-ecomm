@@ -1,0 +1,33 @@
+:root {
+  --primary-color: #b50000f1;
+  --secondary-color: #08164af3;
+  --button-hover: #08164ad0;
+  --primary-color-hover: #b50000c3;
+  --text-color: #000;
+  --other-color: #fff;
+  --button-radius: 10px;
+  --error: #db3d3d4f;
+  --success: rgba(0, 169, 0, 0.359);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  position: relative;
+  min-height: 100vh;
+
+  a {
+    text-decoration: none;
+    color: unset;
+  }
+ 
+  
+  button {
+    border: unset;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--button-radius);
+    font-size: 20px;
+    cursor: pointer;
+  }
+}

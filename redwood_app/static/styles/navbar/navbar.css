@@ -1,0 +1,140 @@
+.nav-section {
+  height: 60px;
+  width: 100%;
+}
+.nav-section .navbar {
+  font-size: 1em;
+  display: flex;
+  height: 70px;
+  background-color: var(--other-color);
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: var(--text-color) solid 0.5px;
+}
+.nav-section .navbar .nav-items1 {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-section .navbar .nav-items1 input {
+  font-size: 0.8em;
+  padding: 10px;
+  border-radius: 10px;
+  border: solid;
+  border-width: 1px;
+  height: 30px;
+  outline: var(--secondary-color);
+  transition: 1s ease;
+}
+.nav-section .navbar .nav-items2 {
+  align-items: center;
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-section .navbar .nav-item3 {
+  align-items: center;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-section .navbar .logo {
+  color: var(--primary-color);
+  font-size: 1.4em;
+}
+.nav-section .navbar .logo span {
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+.nav-section .navbar .active {
+  padding: 10px;
+  border-bottom: solid var(--button-hover);
+}
+.nav-section .navbar .links a {
+  transition: 0.4s ease-in-out;
+  position: relative;
+}
+.nav-section .navbar .links a:hover {
+  padding: 10px;
+  border-radius: var(--button-radius);
+  background-color: var(--button-hover);
+  color: var(--other-color);
+}
+.nav-section .navbar #myaccount {
+  cursor: pointer;
+  position: relative;
+}
+.nav-section .navbar #myaccount #account-details {
+  border: solid var(--primary-color);
+  z-index: 999;
+  display: none;
+  border-radius: 10px;
+  width: 100%;
+  background-color: var(--other-color);
+  position: absolute;
+  top: 35px;
+}
+.nav-section .navbar #myaccount #account-details div {
+  margin-bottom: 10px;
+}
+.nav-section .navbar #myaccount #account-details a {
+  display: block;
+  padding: 20px;
+}
+.nav-section .navbar #myaccount #account-details a:hover {
+  color: var(--other-color);
+  background-color: var(--button-hover);
+  border-radius: 10px;
+  transition: 0.5 ease-in-out;
+}
+
+#menu-bar {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .nav-section {
+    font-size: larger;
+    z-index: 999;
+    position: fixed;
+    height: 100%;
+    display: none;
+  }
+  .nav-section .navbar {
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+  }
+  .nav-section .navbar .nav-items1 {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30%;
+  }
+  .nav-section .navbar .nav-items2 {
+    height: 30%;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  .nav-section .navbar .nav-item3 {
+    height: 30%;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  .nav-section .navbar .active {
+    color: var(--other-color);
+    border-radius: var(--button-radius);
+    background-color: var(--button-hover);
+  }
+  #menu-bar {
+    font-size: 2em;
+    display: block;
+    background-color: var(--other-color);
+    display: block;
+    padding: 10px;
+    margin-top: 0;
+    position: fixed;
+    top: 0%;
+    width: 100%;
+  }
+}/*# sourceMappingURL=navbar.css.map */

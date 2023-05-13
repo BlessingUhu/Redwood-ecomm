@@ -1,0 +1,47 @@
+.hero-section {
+  height: 700px;
+  padding-top: 80px;
+}
+.hero-section .hero-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+}
+.hero-section .hero-container .hero-description {
+  text-align: center;
+}
+.hero-section .hero-container .hero-description h1 {
+  font-size: 2.3em;
+  color: var(--primary-color);
+}
+.hero-section .hero-container .hero-description p {
+  font-size: 1.3em;
+}
+.hero-section .hero-container .hero-description .hero-a {
+  margin-left: 30%;
+  margin-top: 50px;
+}
+.hero-section .hero-container .hero-description .hero-a a {
+  display: block;
+  font-size: 1.5em;
+  background-color: var(--secondary-color);
+  width: 40%;
+  border: unset;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px;
+  transition: 1s ease;
+  color: var(--other-color);
+}
+.hero-section .hero-container .hero-description .hero-a a:hover {
+  background-color: var(--button-hover);
+}
+.hero-section .hero-container .hero-img {
+  width: 600px;
+  height: 600px;
+}
+.hero-section .hero-container .hero-img img {
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=dashboard.css.map */

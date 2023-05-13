@@ -1,0 +1,26 @@
+{% extends "main.html" %} {% block title %} profile{% endblock title %} {% block content %}{% load static %}
+<link rel="stylesheet" href="{% static 'styles/profile/profile.css' %}" />
+
+<main class="main">
+  <div class="profile-header">Welcome to your profile, &nbsp;<span>{{request.user}}</span></div>
+  <div class="profile-main">
+    {% include "sidebar.html" %}
+    <section class="form-section">
+      {%if formvalid%}
+      <div class="message">{{message}}</div>
+      {%endif%}
+      <form method="POST" novalidate>
+        {% csrf_token %} {%for field in forms%}
+        <div class="form-fields">
+          <div><label>{{field.label}}:</label></div>
+          <div>{{field}}</div>
+          <small>{{field.errors}}</small>
+        </div>
+        {%endfor%}
+        <div class="submit"><input type="submit" value="Add Address" /></div>
+      </form>
+    </section>
+  </div>
+</main>
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends "main.html" %} {% block title %} Orders {% endblock title %} {% block content %} {% load static %} {% load sweetify %} {% sweetify %}
+<link rel="stylesheet" href="{% static 'styles/orders/orders.css' %}" />
+
+<main>
+  <section class="order-section">
+    <div class="order-title">
+      <h1>Your Orders</h1>
+    </div>
+    <div class="order-main-container">
+      {% for order in orders %}
+      <div class="order-container">
+        <div class="order-details-container">
+          <div class="order-details">
+            <div>
+              <h4>ORDER PLACED</h4>
+              <p>{{order.created}}</p>
+            </div>
+            <div>
+              <h4>TOTAL</h4>
+              <p>${{order.cart.total_price|floatformat:2}}</p>
+            </div>
+            <div>
+              <h4>SHIP TO</h4>
+              <p>{{request.user}}</p>
+            </div>
+          </div>
+          <div class="order-details">
+            <div><h4>ORDER # {{order.id}}</h4></div>
+          </div>
+        </div>
+        <div class="cart-container">
+          <div class="cart-details">
+            <div class="cart-image"><img src="media/{{order.cart.product.image}}" alt="{{order.cart.product.name}}" /></div>
+            <div><p>{{order.cart.product.description}}</p></div>
+          </div>
+          <div><a href="{%url 'cart_item' order.cart.product.id %}">View Item</a></div>
+        </div>
+      </div>
+      {%empty%}
+      <div class="empty">
+        <h3>You have no orders yet. Click <a href="{%url 'products'%}">here</a> if you would like to buy some products.</h3>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</main>
+
+{% endblock content %}

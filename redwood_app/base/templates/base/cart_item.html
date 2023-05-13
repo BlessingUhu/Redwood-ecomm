@@ -1,0 +1,24 @@
+{% extends "main.html" %} {% block title %} items {% endblock title %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'styles/cart_item/item.css' %}" />
+
+<section class="item-section">
+  <div class="item-title"><h1>Cart Item</h1></div>
+  <div class="goToCart"><a href="{%url 'cart'%}">Go to cart</a><span class="material-symbols-outlined"> keyboard_arrow_right </span></div>
+
+  <div class="item-container">
+    <div class="item-image"><img src="/media/{{item.image}}" alt="" /></div>
+    <div class="item-specifics">
+      <div><h3>{{item.name}}</h3></div>
+      <div><p>{{item.description}}</p></div>
+      <div>
+        <h4>Price: <span>${{item.price}}</span></h4>
+      </div>
+      <form method="POST">
+        {% csrf_token %}
+        <div class="item-btn"><button type="submit">Add To cart</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+{%endblock content%}

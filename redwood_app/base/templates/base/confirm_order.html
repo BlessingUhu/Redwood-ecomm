@@ -1,0 +1,16 @@
+{% extends "main.html" %} {% block title %} checkout {% endblock title %} {% block content %} {% load static %}
+
+<link rel="stylesheet" href="{% static 'styles/confirm_checkout/confirm.css' %}" />
+
+<section class="confirm-section">
+  <form method="POST">
+    {% csrf_token %}
+    <div class="confirm-order">
+      <h2>Are you sure you would like to place an order?</h2>
+      <div class="yes"><input type="submit" value="Yes, go ahead" /></div>
+      <div class="no"><a href="{%url 'checkout_cart'%}">No</a></div>
+    </div>
+  </form>
+</section>
+
+{% endblock content %}

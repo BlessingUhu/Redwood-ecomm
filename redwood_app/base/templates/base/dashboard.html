@@ -1,0 +1,24 @@
+{% extends "main.html" %}{% load static %} {% block content %}
+
+<link rel="stylesheet" href="{% static 'styles/dashboard/dashboard.css' %}" />
+
+<!-- <h1 class="yo">This works</h1> -->
+<main>
+  <section class="hero-section">
+    <div class="hero-container" data-aos="fade-up" data-aos-duration="1500">
+      <div class="hero-description">
+        <h1>Refine your grooming game.</h1>
+        <p>
+          Discover the perfect combination of fragrance and <br />
+          with our collection of perfumes, balms, and soaps. <br />
+          Explore our range and find your signature scent today.
+        </p>
+        <div class="hero-a"><a href="{%url 'products'%}">Shop</a></div>
+      </div>
+      <div class="hero-img"><img src="/media/images/hero-images.png" alt="" /></div>
+    </div>
+  </section>
+  
+</main>
+
+{% endblock content %}

@@ -1,0 +1,49 @@
+.confirm-section {
+  margin-top: 80px;
+}
+.confirm-section .confirm-order {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.confirm-section .confirm-order .yes {
+  width: 20%;
+  margin-bottom: 60px;
+  margin-top: 30px;
+}
+.confirm-section .confirm-order .yes input[type=submit] {
+  padding: 20px;
+  width: 100%;
+  border-radius: var(--button-radius);
+  background-color: var(--secondary-color);
+  color: var(--other-color);
+  font-size: 20px;
+  border: hidden;
+  cursor: pointer;
+}
+.confirm-section .confirm-order .no {
+  width: 20%;
+  height: 60px;
+  text-align: center;
+}
+.confirm-section .confirm-order .no a {
+  text-align: center;
+  display: block;
+  width: 100%;
+  line-height: 3;
+  height: 100%;
+  border-radius: var(--button-radius);
+  background-color: var(--primary-color);
+  color: var(--other-color);
+  font-size: 20px;
+  border: hidden;
+}
+
+@media (max-width: 500px) {
+  .confirm-section .confirm-order .yes {
+    width: 80%;
+  }
+  .confirm-section .confirm-order .no {
+    width: 80%;
+  }
+}/*# sourceMappingURL=confirm.css.map */

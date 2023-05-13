@@ -1,0 +1,30 @@
+{% extends "main.html" %} {% block title %} address {% endblock title %} {% block content %}{% load static %}
+<link rel="stylesheet" href="{% static 'styles/address/address.css' %}" />
+
+<main class="address-main">
+  <div class="profile-header">Welcome to your profile, &nbsp;<span>{{request.user}}</span></div>
+
+  <section class="address-container">
+    {% include "sidebar.html" %}
+    <div class="address-fields">
+      {% for field in profile %}
+      <div class="address">
+        <div class="address-details">
+          <div><span>Name:</span> &nbsp; {{field.name}}</div>
+          <div><span>Phone:</span> &nbsp; {{field.phone}}</div>
+          <div><span>Address:</span> &nbsp; {{field.address}}, &nbsp; {{field.state}}, &nbsp; {{field.country}}, &nbsp; {{field.zipcode}}</div>
+        </div>
+        <div class="deleteOrEdit">
+          <div class="address-edit"><a href="{%url 'edit_address' field.id%}">Edit</a></div>
+          <div class="address-edit"><a id="delete" href="{%url 'delete_address' field.id%}">Delete</a></div>
+        </div>
+      </div>
+      {% endfor %} {% if profileCount == 0 %}
+      <div>
+        <h1>No address added. Add one <a style="color: var(--secondary-color)" href="{%url 'profile'%}">HERE</a></h1>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+</main>
+{%endblock content%}

@@ -1,0 +1,19 @@
+.sidebar-container {
+  margin-top: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 300px;
+  padding: 50px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.sidebar-container .active {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: var(--other-color);
+}
+.sidebar-container .links {
+  width: 100%;
+  border-bottom: solid var(--primary-color);
+}/*# sourceMappingURL=sidebar.css.map */

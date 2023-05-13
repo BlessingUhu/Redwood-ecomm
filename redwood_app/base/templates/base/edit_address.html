@@ -1,0 +1,32 @@
+{% extends "main.html" %} {% block title %} edit {% endblock title %} {% block content %}{% load static %}
+<link rel="stylesheet" href="{% static 'styles/profile/profile.css' %}" />
+
+<section>
+  <div>
+      <main class="main">
+        <div class="profile-header">Hey&nbsp;<span>{{request.user}}</span>, edit your address</div>
+        <div class="profile-main">
+          {% include "sidebar.html" %}
+          <section class="form-section">
+            {%if formvalid%}
+            <div class="message">{{message}}</div>
+            {%endif%}
+            <form method="POST" novalidate>
+              {% csrf_token %} {%for field in forms%}
+              <div class="form-fields">
+                <div><label>{{field.label}}:</label></div>
+                <div>{{field}}</div>
+                {% if forms.errors%}
+                <small>{{field.errors}}</small>
+                {% endif %}
+              </div>
+              {%endfor%}
+              <div class="submit"><input type="submit" value="Update" /></div>
+            </form>
+          </section>
+        </div>
+      </main>
+  </div>
+</section>
+
+{%endblock content%}

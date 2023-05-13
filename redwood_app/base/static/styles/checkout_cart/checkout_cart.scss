@@ -1,0 +1,199 @@
+.defaultaddress-title {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  .material-symbols-outlined {
+    font-size: 35px;
+  }
+}
+.defaultaddress-main {
+  margin-top: 30px;
+  display: flex;
+  background-color: rgba(128, 128, 128, 0.101);
+
+  .section-children {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 20px;
+    background-color: var(--other-color);
+  }
+
+  .defaultaddress-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 20px;
+    margin: 30px;
+
+    .country-wrap {
+      align-items: center;
+      display: flex;
+      gap: 5px;
+
+      .country-img {
+        width: 40px;
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .address-container {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      height: 150px;
+      overflow-y: scroll;
+
+      .address-item {
+        border-bottom: solid var(--primary-color) 0.5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding-bottom: 10px;
+
+        .address-input {
+          height: 100%;
+          input {
+            border: hidden;
+            font-size: 15px;
+            border-radius: 10px;
+            color: var(--other-color);
+            padding: 15px;
+            background-color: var(--secondary-color);
+            cursor: pointer;
+          }
+        }
+        .edit-address {
+          height: 100%;
+          a {
+            font-size: 15px;
+            display: block;
+            border: hidden;
+            border-radius: 10px;
+            color: var(--other-color);
+            padding: 15px;
+            background-color: var(--primary-color);
+          }
+        }
+      }
+    }
+  }
+
+  .cart-section {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 20px;
+    margin: 30px;
+    .num-items {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: solid 1px;
+      align-items: center;
+    }
+    .item-image {
+      width: 100px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .price {
+      font-weight: 600;
+    }
+    .cart-item-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      .cart-item {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        padding-bottom: 5px;
+        border-bottom: solid 0.1px;
+        .item-details {
+          width: max-content;
+        }
+      }
+    }
+  }
+
+  .placing-order {
+    margin-top: 40px;
+    // border: dashed;
+    .order {
+      // border: dashed;
+      width: 50%;
+      height: 60px;
+
+      button {
+        font-size: 17px;
+        color: var(--other-color);
+        width: 100%;
+        height: 100%;
+        background-color: var(--secondary-color);
+        transition: 0.5 ease;
+      }
+      button:hover {
+        background-color: var(--button-hover);
+      }
+      button:disabled {
+        opacity: 0.3;
+      }
+      a {
+        line-height: 3.5;
+        display: block;
+        text-align: center;
+        border-radius: var(--button-radius);
+        font-size: 17px;
+        color: var(--other-color);
+        width: 100%;
+        height: 100%;
+        background-color: var(--secondary-color);
+        transition: 0.5 ease;
+      }
+      a:hover {
+        background-color: var(--button-hover);
+      }
+    }
+    small {
+      width: fit-content;
+      border-radius: 5px;
+      padding: 10px;
+      display: block;
+      margin-top: 20px;
+      background-color: var(--error);
+    }
+  }
+}
+
+.no-item {
+  margin-top: 70px;
+  text-align: center;
+  a {
+    border-bottom: solid var(--secondary-color) 4px;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .defaultaddress-title {
+    margin-top: 50px;
+  }
+  .defaultaddress-main {
+    flex-direction: column-reverse;
+    .defaultaddress-section {
+      width: 80%;
+    }
+      .cart-section {
+        width: 80%;
+      }
+  }
+}

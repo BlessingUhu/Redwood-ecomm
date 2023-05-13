@@ -1,0 +1,31 @@
+{% extends "main.html" %} {% block title %} register {% endblock title %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'styles/registration/registration.css' %}" />
+
+<main>
+  <section class="form-section">
+    <div class="form-div">
+      <form method="POST" action="" novalidate>
+        <div class="form-container">
+          <div class="form-header">
+            <h3>Register</h3>
+          </div>
+          {% csrf_token %} {% for field in form%}
+          <div class="form-fields">
+            <div><label>{{field.label}}:</label></div>
+            <div>{{field}}</div>
+            {% if not form.is_valid%}
+            <small>{{field.errors}}</small>
+            {% endif %} {%if form.has_changed and not field.errors%}
+            <small style="display: flex" class="success">Success <span id="done" class="material-symbols-outlined">done</span></small>
+            {% endif %}
+          </div>
+          {% endfor %}
+          <div class="form-button"><input type="submit" value="Submit" /></div>
+          <div class="acc-already">Already have an account? Please <a href="{%url 'login'%}">Login</a></div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+{% endblock content %}

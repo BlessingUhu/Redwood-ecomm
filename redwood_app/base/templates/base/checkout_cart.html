@@ -1,0 +1,112 @@
+{% extends "main.html" %} {% block title %} checkout {% endblock title %} {% block content %} {% load static %}
+
+<link rel="stylesheet" href="{% static 'styles/checkout_cart/checkout_cart.css' %}" />
+
+<div class="defaultaddress-title">
+  <div class="material-symbols-outlined">shopping_cart_checkout</div>
+  <h1>Checkout</h1>
+</div>
+{% if count_quantity != 0%}
+<main class="defaultaddress-main">
+  <section class="defaultaddress-section">
+    <div class="section-children">
+      <div><h4>Shipping Country</h4></div>
+      <div class="country-wrap">
+        <div class="country-img"><img src="media/images/Flag_of_the_United_States.svg" alt="" /></div>
+        <div><span>United States</span></div>
+      </div>
+    </div>
+    <div class="section-children">
+      <h4>Email Address</h4>
+      <p>{{request.user.email}}</p>
+    </div>
+    <div class="section-children">
+      <h4>Delivery Address</h4>
+
+      <div class="address-container">
+        {% if defaultaddress_model.count == 0 %} {% for address in all_address %}
+        <form method="POST">
+          {% csrf_token %}
+          <div class="address-item">
+            <div>
+              <div>{{address.name}}</div>
+              <div>{{address.address}}</div>
+              <div>{{address.state}}</div>
+              <div>{{address.zipcode}}</div>
+              <div>{{address.country}}</div>
+              <div>{{address.phone}}</div>
+            </div>
+            <div class="edit-address"><a href="{% url 'edit_address' address.id%}">Edit</a></div>
+            <div class="address-input"><input type="hidden" value="{{address.id}}" name="add_address" /><input type="submit" value="Make default" /></div>
+          </div>
+        </form>
+        {%empty%}
+        <div>You have no address available in your profile, please add one <a href="{%url 'profile'%}">here</a></div>
+        {% endfor %} {% endif %} {% if defaultaddress_model.count > 0 %} {% for model in defaultaddress_model %}
+        <form method="POST">
+          {% csrf_token %}
+          <div class="address-item">
+            <div>
+              <div>{{model.address.name}}</div>
+              <div>{{model.address.address}}</div>
+              <div>{{model.address.state}}</div>
+              <div>{{model.address.zipcode}}</div>
+              <div>{{model.address.country}}</div>
+              <div>{{model.address.phone}}</div>
+            </div>
+            <div class="address-input"><input type="hidden" value="{{model.id}}" name="delete_address" /><input type="submit" value="Change" /></div>
+          </div>
+        </form>
+        {% endfor %} {% endif %}
+      </div>
+    </div>
+    <div class="placing-order">
+      {%if defaultaddress_model.count == 0%}
+      <div class="order"><button disabled type="submit">Order</button></div>
+      <small>You need to choose an address before you can place an order *</small>
+      {% elif defaultaddress_model.count > 0%}
+      <div class="order"><a href="{% url 'confirm_order' %}">Order</a></div>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="cart-section">
+    <div class="section-children">
+      <div class="num-items">
+        <h3>Items: {{count_quantity}}</h3>
+        <div><a href="{%url 'cart'%}">Edit</a></div>
+      </div>
+      <div class="cart-item-wrapper">
+        {% for item in user_cart %}
+        <div class="cart-item">
+          <div>
+            <div class="item-image"><img src="media/{{item.product.image}}" alt="" /></div>
+            <div class="price">Item total: ${{item.total_price|floatformat:2 }}</div>
+          </div>
+          <div class="item-details">
+            <div class="price">${{item.product.price|floatformat:2 }}</div>
+            <div>{{item.product.name}}</div>
+            <div>Qty: {{item.quantity}}</div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {%if user_cart != 0%}
+    <div class="section-children">
+      <p>Sales tax: {{sales_tax}}</p>
+      <p>Shipping: Free</p>
+      <h3>TOTAL TO PAY: {{cart_total}}</h3>
+    </div>
+    {%endif%}
+  </section>
+</main>
+
+{%else%}
+<section>
+  <div class="no-item">
+    <h2>You have no Items to checkout. Please add one <a href="{% url 'products'%}">here</a></h2>
+  </div>
+</section>
+
+{% endif %} {% endblock content %}

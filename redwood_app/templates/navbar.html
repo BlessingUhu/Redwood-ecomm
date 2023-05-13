@@ -1,0 +1,44 @@
+{%load static%}
+<link rel="stylesheet" href="{% static 'styles/navbar/navbar.css' %}" />
+  <span id="menu-bar" class="material-symbols-outlined"> menu </span>
+
+<section class="nav-section" id="nav_section">
+
+  <nav class="navbar" id="nav_bar">
+    <div class="nav-items1">
+      {%url 'products' as url%}
+      <div class="links {%if request.path == url%} active{%endif%}"><a href="{%url 'products'%}">Products</a></div>
+      <div>
+        <form method="GET" action="{%url 'products'%}">
+          <input type="search" name="q" />
+        </form>
+      </div>
+      <div class="logo">
+        <a href="{%url 'dashboard'%}">Red<span>wood</span></a>
+      </div>
+    </div>
+    <div class="nav-items2">
+      {%if request.user.is_authenticated%} {%url 'cart' as url%}
+      <div class="links {%if request.path == url%} active{%endif%}"><a href="{%url 'cart'%}" class="material-symbols-outlined"> shopping_cart</a></div>
+      {%url 'checkout_cart' as url%}
+      <div class="links {%if request.path == url%} active{%endif%}"><a href="{%url 'checkout_cart'%}">Checkout</a></div>
+      <div id="myaccount">
+        <div id="account" style="display: flex; align-items: center">Account &nbsp;<span id="acc-person" class="material-symbols-outlined"> person </span></div>
+        <div id="account-details">
+          <div><a href="{%url 'profile'%}">Profile</a></div>
+          <div><a href="{%url 'orders'%}">Orders</a></div>
+          <div><a href="{% url 'logout'%}">Logout</a></div>
+        </div>
+      </div>
+    </div>
+
+    {%else%} {%url 'register' as url%}
+    <div class="nav-item3">
+      <div class="links {%if request.path == url%} active{%endif%}"><a href="{%url 'register'%}">Register</a></div>
+      {%url 'login' as url%}
+      <div class="links {%if request.path == url%} active{%endif%}"><a href="{%url 'login'%}">Login</a></div>
+    </div>
+    {% endif %}
+  </nav>
+</section>
+<script src="{% static 'scripts/navbar.js' %}"></script>

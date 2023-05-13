@@ -1,0 +1,55 @@
+{% extends "main.html" %} {% block title %} products {% endblock title %} {% block content %} {% load static %}
+
+<!-- <link rel="scripts" href="{% static 'scripts/products.js' %}" /> -->
+<link rel="stylesheet" href="{% static 'styles/products/products.css' %}" />
+
+<div class="product-title"><h1>Products</h1></div>
+<div class="goToCart"><a href="{%url 'cart'%}">Go to cart</a><span class="material-symbols-outlined"> keyboard_arrow_right </span></div>
+
+{% if request.method == "POST" %}
+<div class="success_message">{{message}}</div>
+{% endif %}
+<main class="product-main">
+  <section class="filter-section">
+    <div class="filter-container">
+      <div class="filter-span"><span>Filter By:</span></div>
+
+      {%for topic in topics%}
+      <div class="filters"><a href="{%url 'products'%}?q={{topic.name}}">{{topic.name}}</a></div>
+      {%endfor%}
+      <div class="filters">
+        <a href="{%url 'products'%}">All</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="product-container">
+      {%for products in allProducts%}
+      <a href="{% url 'cart_item' products.id %}" class="product-list">
+        <div class="product-image"><img src="media/{{products.image}}" alt="" /></div>
+        <div class="product-specifics">
+          <div><h5>{{products.name}}</h5></div>
+          <div>
+            <h6>Price: <span>${{products.price}}</span></h6>
+          </div>
+          <form method="POST">
+            {% csrf_token %}
+            <div class="product-btn"><button type="submit">Add To cart</button><input type="hidden" name="prod_id" value="{{products.id}}" /></div>
+          </form>
+        </div>
+      </a>
+      {%endfor%}
+    </div>
+  </section>
+</main>
+
+<section>
+  <div class="notFound">
+    <h3>
+      {%if allProducts.count == 0%} Could not find the products you are looking for. <br />
+      Look for all products <a href="{%url 'products'%}">here</a>{%endif%}
+    </h3>
+  </div>
+</section>
+{% endblock content %}

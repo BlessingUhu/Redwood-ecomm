@@ -1,0 +1,25 @@
+{% extends "main.html" %} {% block title %} delete address {% endblock title %} {% block content %}{% load static %}
+<link rel="stylesheet" href="{% static 'styles/profile/profile.css' %}" />
+
+<section>
+    
+  <div>
+    <main class="main">
+      <div class="profile-header">Hey&nbsp;<span>{{request.user}}</span>, are you sure you want to delete?</div>
+      <div class="profile-main">
+        <section class="form-section">
+          <form method="POST" novalidate>
+            {% csrf_token %}
+            <div class="deletion">
+              <div class="delete"><input type="submit" value="Delete" /></div>
+              <div class="goBack"><a href="{%url 'address'%}">Go Back</a></div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+
+</section>
+
+{%endblock content%}

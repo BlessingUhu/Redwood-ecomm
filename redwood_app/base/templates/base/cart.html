@@ -1,0 +1,74 @@
+{% extends "main.html" %} {% block title %} cart {% endblock title %} {% block content %} {% load static %} {% load sweetify %} {% sweetify %}
+<link rel="stylesheet" href="{% static 'styles/cart/cart.css' %}" />
+
+<main class="cart-main">
+  <div class="cart-topic">
+    <h1><span class="material-symbols-outlined"> shopping_bag </span>My Cart &nbsp; <span id="cart_count">{{count_quantity}}</span></h1>
+  </div>
+  <div class="goBack"><span class="material-symbols-outlined"> navigate_before </span><a href="{%url 'products'%}">Products</a></div>
+  <section>
+    {% if request.POST and is_valid%}
+    <div id="success_message">{{success_message}}</div>
+    {% elif request.POST and not is_valid%}
+    <div id="error_message">{{error}}</div>
+    {% endif %}
+
+    <div class="cart-container">
+      {% for item in cart %}
+
+      <div class="cart-wrapper">
+        <div class="cart-item">
+          <div class="item-image"><img src="media/{{item.product.image}}" alt="" /></div>
+          <div><h4>{{item.product.name}}</h4></div>
+        </div>
+
+        <div class="cart-item">
+          <div><h3>Each</h3></div>
+          <div class="price">${{item.product.price|floatformat:2}}</div>
+        </div>
+
+        <div class="cart-item">
+          <form method="POST">
+            {% csrf_token %}
+            <div class="quantity">
+              <div class="quantity-flex">
+                <div>
+                  <div><h3>Quantity</h3></div>
+                  <div><input type="hidden" value="{{item.id}}" name="item_id" /> <input type="number" value="{{item.quantity|default:1}}" name="quantity_amount" /></div>
+                </div>
+                <div><input type="submit" value="Update quantity" /></div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="cart-item">
+          <div><h3>Total</h3></div>
+          <div class="price">${{item.total_price|floatformat:2 }}</div>
+        </div>
+        <div class="cart-item">
+          <div class="remove_item">
+            <a href="{%url 'delete_cart' item.id%}"><span class="material-symbols-outlined"> delete </span>Remove</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %} {%if count_quantity == 0 %}
+      <div class="no-item">
+        <h2>You have no items in your cart. Add one <a href="{%url 'products'%}">here.</a></h2>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  {% if count_quantity != 0 %}
+  <section class="cart-checkout">
+    <div class="total-price">
+      <h4>Total Price: ${{cart_total|floatformat:2 }}</h4>
+    </div>
+    <div class="checkout-a">
+      <a href="{%url 'checkout_cart'%}">Checkout</a>
+    </div>
+  </section>
+  {% endif %}
+</main>
+{% endblock content %}
+<script src="{% static 'scripts/cart.js' %}"></script>
