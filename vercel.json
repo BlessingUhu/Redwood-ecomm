@@ -11,6 +11,9 @@
       "config": {
         "distDir": "staticfiles_build"
       }
+    },
+    {
+      "framework": "nextjs"
     }
   ],
   "routes": [
