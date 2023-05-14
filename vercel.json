@@ -13,7 +13,7 @@
       }
     },
     {
-      "framework": "nextjs"
+      "framework": "django"
     }
   ],
   "routes": [
