@@ -19,7 +19,7 @@ SCSS (Sassy CSS): Used to enhance the styling capabilities of CSS and make the c
 JavaScript: Enables interactive features and dynamic behavior on the client-side.
 Payment Gateway Integration: Integration with a payment gateway API to securely process customer payments.
 
-* Setup Instructions
+## Setup Instructions
 
 Clone the repository:
 git clone [https://github.com/your-username/redwood.git](https://github.com/BlessingUhu/Redwood-ecomm.git)
@@ -45,12 +45,12 @@ python manage.py runserver
 Open your web browser and visit http://localhost:8000 to access the Redwood application.
 
 # Folder Structure
-redwood_app: Contains the main application logic.
-models: Defines the database models.
-views: Implements the views and controllers for different pages and functionalities.
-templates: Contains HTML templates for rendering the views.
-static: Includes CSS, JavaScript, and other static files.
-migrations: Manages database migrations using django migration.
-config.py: Configuration file for the application.
-requirements.txt: Lists the Python dependencies required for the application.
-manage.py: Entry point for running management commands (e.g., running the server, applying database migrations).
+1- redwood_app: Contains the main application logic.
+2- models: Defines the database models.
+3- views: Implements the views and controllers for different pages and functionalities.
+4- templates: Contains HTML templates for rendering the views.
+5- static: Includes CSS, JavaScript, and other static files.
+6- migrations: Manages database migrations using django migration.
+7- config.py: Configuration file for the application.
+8- requirements.txt: Lists the Python dependencies required for the application.
+9- manage.py: Entry point for running management commands (e.g., running the server, applying database migrations).
