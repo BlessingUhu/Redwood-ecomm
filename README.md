@@ -4,22 +4,22 @@ Redwood is a full-fledged ecommerce web application built using Django Framework
 browse, search, and purchase products online. This README provides an overview of the application and instructions for setting it up 
 and running it locally.
 
-# Features
+## Features
 - User registration and authentication
 - Product catalog with search and filtering options
 - Shopping cart functionality
 - Order history
 - Admin dashboard for managing, orders, and users
 
-# Technologies Used
-SQL (Structured Query Language): Used to create and manage the database that stores product information, user data, and order details.
-Python: The backend of the application is built using Python, utilizing frameworks such as Flask or Django for routing, handling requests, and managing the business logic.
-HTML (Hypertext Markup Language): Responsible for the structure and layout of the web pages.
+### Technologies Used
+1. SQL (Structured Query Language): Used to create and manage the database that stores product information, user data, and order details.
+2. Python: The backend of the application is built using Python, utilizing frameworks such as Flask or Django for routing, handling requests, and managing the business logic.
+3. HTML (Hypertext Markup Language): Responsible for the structure and layout of the web pages.
 SCSS (Sassy CSS): Used to enhance the styling capabilities of CSS and make the code more maintainable.
-JavaScript: Enables interactive features and dynamic behavior on the client-side.
+4. JavaScript: Enables interactive features and dynamic behavior on the client-side.
 Payment Gateway Integration: Integration with a payment gateway API to securely process customer payments.
 
-## Setup Instructions
+#### Setup Instructions
 
 Clone the repository:
 git clone [https://github.com/your-username/redwood.git](https://github.com/BlessingUhu/Redwood-ecomm.git)
@@ -45,12 +45,12 @@ python manage.py runserver
 Open your web browser and visit http://localhost:8000 to access the Redwood application.
 
 # Folder Structure
-1- redwood_app: Contains the main application logic.
-2- models: Defines the database models.
-3- views: Implements the views and controllers for different pages and functionalities.
-4- templates: Contains HTML templates for rendering the views.
-5- static: Includes CSS, JavaScript, and other static files.
-6- migrations: Manages database migrations using django migration.
-7- config.py: Configuration file for the application.
-8- requirements.txt: Lists the Python dependencies required for the application.
-9- manage.py: Entry point for running management commands (e.g., running the server, applying database migrations).
+1. redwood_app: Contains the main application logic.
+2. models: Defines the database models.
+3. views: Implements the views and controllers for different pages and functionalities.
+4. templates: Contains HTML templates for rendering the views.
+5. static: Includes CSS, JavaScript, and other static files.
+6. migrations: Manages database migrations using django migration.
+7. config.py: Configuration file for the application.
+8. requirements.txt: Lists the Python dependencies required for the application.
+9. manage.py: Entry point for running management commands (e.g., running the server, applying database migrations).
